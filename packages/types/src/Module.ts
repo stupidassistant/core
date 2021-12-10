@@ -23,27 +23,27 @@ export type Module = {
 	name: string,
 	lambdas: Record<LambdaId, {
 		phrases: LambdaPhrases,
+		slots: string[],
 		lambda: Lambda
-	}>,
-	slots: string[]
+	}>
 };
 
 export type ModuleInstance = {
 	name: string,
 	lambdas: Record<LambdaId, {
 		phrases: LambdaPhrases,
+		slots: string[],
 		lambda: LambdaInstance
-	}>,
-	slots: string[]
+	}>
 };
 
 export type ModuleJSON = {
 	name: string,
 	lambdas: Record<LambdaId, {
 		phrases: LambdaPhrases
+		slots: string[],
 		lambda: LambdaString
-	}>,
-	slots: string[]
+	}>
 };
 
 export type ModuleValidationData = {

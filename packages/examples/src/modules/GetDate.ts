@@ -5,6 +5,7 @@ export const GetDate: Module = {
 	lambdas: {
 		'GetDate': {
 			phrases: ["get date"],
+			slots: [],
 			lambda: (req, res) => {
 				const d = new req.date();
 				return res.speak(`${d.getDate()}`);

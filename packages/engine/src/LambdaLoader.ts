@@ -1,10 +1,11 @@
+import type { LambdaOutputJSON } from '@stupidassistant/types';
 import { VM } from "vm2";
 
 import Request from './Request';
 import Responce from './Responce';
 
-const LambdaLoader = (str: string): any => {
-	return (text: string) => {
+const LambdaLoader = (str: string): (text: string) => LambdaOutputJSON => {
+	return (text: string): LambdaOutputJSON => {
 		const vm = new VM({
 			timeout: 1000,
 			sandbox: {
@@ -13,7 +14,7 @@ const LambdaLoader = (str: string): any => {
 			}
 		});
 
-		return vm.run(`(${str})(request, responce)`);
+		return vm.run(`(${str})(request, responce)`) as LambdaOutputJSON;
 	}
 };
 
