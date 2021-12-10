@@ -1,0 +1,29 @@
+{
+  "name": "@stupidassistant/examples",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+	"types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --build",
+    "lint:tsc": "echo \"TypeScript is not configured for package, skipping.\"",
+    "test": "echo \"Unit testing is not configured for package, skipping.\""
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "files": [
+    "dist",
+    "src",
+    "!dist/tsconfig.tsbuildinfo"
+  ],
+  "license": "MIT",
+  "repository": "git@github.com:wixplosives/sample-monorepo.git",
+  "sideEffects": false,
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@stupidassistant/types": "^1.0.0"
+  }
+}

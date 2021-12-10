@@ -1,0 +1,39 @@
+{
+  "name": "@stupidassistant/engine",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --build",
+    "test": "jest 'test/.*\\.test\\.[tj]s$'"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "files": [
+    "dist",
+    "src",
+    "!dist/tsconfig.tsbuildinfo"
+  ],
+  "license": "MIT",
+  "repository": "git@github.com:wixplosives/sample-monorepo.git",
+  "sideEffects": false,
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testPathIgnorePatterns": [
+      "dist"
+    ]
+  },
+  "dependencies": {
+    "@stupidassistant/types": "^1.0.0",
+    "vm2": "^3.9.5"
+  },
+  "devDependencies": {
+    "@stupidassistant/examples": "^1.0.0",
+    "@types/events": "^3.0.0"
+  }
+}
