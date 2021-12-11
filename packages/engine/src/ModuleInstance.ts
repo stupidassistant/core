@@ -10,6 +10,7 @@ class ModuleInstance {
 			...json,
 			lambdas: ObjMap(json.lambdas, (_, v) => ({
 				phrases: v.phrases,
+				slots: v.slots,
 				lambda: LambdaLoader(v.lambda) as LambdaInstance
 			}))
 		});

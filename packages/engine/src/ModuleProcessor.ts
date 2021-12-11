@@ -9,6 +9,7 @@ export class ModuleProcessor {
 			...this.config,
 			lambdas: ObjMap(this.config.lambdas, (_, v) => ({
 				phrases: v.phrases,
+				slots: v.slots,
 				lambda: v.lambda.toString()
 			}))
 		};
@@ -19,6 +20,7 @@ export class ModuleProcessor {
 			...json,
 			lambdas: ObjMap(json.lambdas, (_, v) => ({
 				phrases: v.phrases,
+				slots: v.slots,
 				lambda: eval(`(${v.lambda})`) as Lambda
 			}))
 		});
