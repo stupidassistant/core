@@ -3,7 +3,7 @@ import type { SlotInstance as SInstance, SlotJSON } from '@stupidassistant/types
 type SlotOccurance = {value: string, index: number};
 
 class SlotInstance {
-	constructor(readonly config: SInstance) {};
+	constructor(readonly config: SInstance) {}
 
 	public static fromJSON(json: SlotJSON): SlotInstance {
 		return new SlotInstance(json);

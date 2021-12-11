@@ -27,7 +27,7 @@
     {
       "files": ["*.ts", "*.tsx"],
       "parserOptions": {
-        "project": "packages/*/tsconfig.json",
+        "project": ["packages/*/tsconfig.json", "packages/*/tsconfig.eslint.json"],
         "EXPERIMENTAL_useSourceOfProjectReferenceRedirect": true
       },
       "extends": [

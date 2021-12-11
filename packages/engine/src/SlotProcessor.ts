@@ -4,7 +4,7 @@ export class SlotProcessor {
 	constructor(readonly config: Slot) {}
 
 	public toJSON(): SlotJSON {
-		let acceptingRegex: string = "";
+		let acceptingRegex = "";
 
 		switch (this.config.type) {
 			case "list":

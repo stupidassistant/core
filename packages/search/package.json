@@ -5,7 +5,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --build",
-    "test": "jest 'test/.*\\.test\\.[tj]s$'"
+    "test": "jest"
   },
   "peerDependencies": {
     "react": ">=17"

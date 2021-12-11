@@ -1,31 +1,31 @@
 export interface SlotBase {
 	name: string,
 	type: string
-};
+}
 
 export interface CompiledSlotBase extends SlotBase {
 	acceptingRegex: string
-};
+}
 
 export interface EnumSlot extends SlotBase {
 	type: "enum",
 	map: Record<string, string[]>
-};
+}
 
 export interface ListSlot extends SlotBase {
 	type: "list",
 	list: string[]
-};
+}
 
 export interface RegexSlot extends SlotBase {
 	type: "regex",
 	regex: string
-};
+}
 
 export interface CompositeSlot extends SlotBase {
 	type: "composite",
 	slots: ["slot"|"str", string][]
-};
+}
 
 // export interface MutationSlot extends SlotBase {
 // 	type: "function",
@@ -34,7 +34,7 @@ export interface CompositeSlot extends SlotBase {
 // 		id: string,
 // 		value: string
 // 	} 
-// };
+// }
 
 export type Slot = EnumSlot | ListSlot | RegexSlot | CompositeSlot;
 
@@ -49,4 +49,4 @@ export type SlotInstance = CompiledSlot;
 // 		id: string,
 // 		value: string
 // 	})[]
-// };
+// }
