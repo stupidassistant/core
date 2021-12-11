@@ -19,31 +19,27 @@ export type LambdaOutputJSON = {
 export type Lambda = (request: LambdaInput, responce: LambdaOutput) => LambdaOutput;
 export type LambdaInstance = (text: string) => LambdaOutput;
 
+type LambdaConfig<LambdaStorage> = {
+	phrases: LambdaPhrases,
+	slots?: {
+		[alias: string]: string
+	},
+	lambda: LambdaStorage
+}
+
 export type Module = {
 	name: string,
-	lambdas: Record<LambdaId, {
-		phrases: LambdaPhrases,
-		slots: string[],
-		lambda: Lambda
-	}>
+	lambdas: Record<LambdaId, LambdaConfig<Lambda>>
 };
 
 export type ModuleInstance = {
 	name: string,
-	lambdas: Record<LambdaId, {
-		phrases: LambdaPhrases,
-		slots: string[],
-		lambda: LambdaInstance
-	}>
+	lambdas: Record<LambdaId, LambdaConfig<LambdaInstance>>
 };
 
 export type ModuleJSON = {
 	name: string,
-	lambdas: Record<LambdaId, {
-		phrases: LambdaPhrases
-		slots: string[],
-		lambda: LambdaString
-	}>
+	lambdas: Record<LambdaId, LambdaConfig<LambdaString>>
 };
 
 export type ModuleValidationData = {

@@ -1,8 +1,12 @@
-type SearchMapRealEstate = {
+export type EcosystemLandscape = {
   modules: {
     [moduleId: string]: {
-      lambdas: string[],
-      slots: string[]
+      lambdas: {
+        [lambdaId: string]: {
+          phrases: string[],
+          slots: string[]
+        }
+      }
     },
   },
   slots: {
@@ -10,12 +14,8 @@ type SearchMapRealEstate = {
       acceptRegex: string,
     }
   }
-}
+};
 
-interface Search {
-  queryList(string: string): string[]
-
-  querySmart(string: string): {
-    [moduleId: string]: number
-  }
-}
+export type Query = (string: string) => [string, string]|null;
+export type QueryList = (string: string) => [string, string][];
+export type QueryRanking = (string: string) => [string, string, number][]

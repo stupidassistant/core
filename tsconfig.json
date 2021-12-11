@@ -2,6 +2,6 @@
   "files": [],
   "references": [
     { "path": "./packages/engine" },
-    { "path": "./packages/engine/test" }
+    { "path": "./packages/search" }
   ]
 }
