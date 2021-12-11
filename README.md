@@ -1,6 +1,6 @@
 # sample-monorepo
+[![Build Status](https://travis-ci.org/stupidassistant/core.svg?branch=master)](https://travis-ci.org/stupidassistant/core)
 
-[![Build Status](https://github.com/wixplosives/sample-monorepo/workflows/tests/badge.svg)](https://github.com/wixplosives/sample-monorepo/actions)
 
 Sample monorepo setup with yarn workspaces, typescript, and lerna.
 
