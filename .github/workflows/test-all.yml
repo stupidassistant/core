@@ -1,0 +1,19 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Test All Packages
+on: [push]
+jobs:
+  build:
+    name: Node.js
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Node (14)
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14.x
+        cache: 'yarn'
+    - name: yarn install
+      run: yarn
+    - name: yarn test
+      run: yarn test
