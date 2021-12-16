@@ -42,11 +42,11 @@ export type CompiledSlot = Slot & CompiledSlotBase;
 export type SlotJSON = CompiledSlot;
 export type SlotInstance = CompiledSlot;
 
-// export interface CompiledSlotBase extends SlotBase {
-// 	acceptingRegex: string,
-// 	regexMap?: Record<string, string>[],
-// 	transform?: (str: string) => (string | {
-// 		id: string,
-// 		value: string
-// 	})[]
-// }
+export interface CompiledSlotBase extends SlotBase {
+	acceptingRegex: string,
+	regexMap?: Record<string, string>[],
+	transform?: (str: string) => (string | {
+		id: string,
+		value: string
+	})[]
+}

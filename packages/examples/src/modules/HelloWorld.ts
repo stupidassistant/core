@@ -4,7 +4,7 @@ export const HelloWorld: Module = {
 	name: "HelloWorld",
 	lambdas: {
 		'HelloWorld': {
-			phrases: ["hello"],
+			phrases: ["hello world"],
 			lambda: (req, res) => {
 				return res.speak("hello world");
 			}
