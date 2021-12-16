@@ -7,7 +7,7 @@ export type LambdaBlueprint = {
     [slotId: string]: string
   }
 };
-export type LambdaBlueprintBuilder = (slot: LambdaConfig<any>) => LambdaBlueprint;
+export type LambdaBlueprintBuilder = (slot: LambdaConfig) => LambdaBlueprint;
 
 export type ModuleBlueprint = {
   lambdas: {
