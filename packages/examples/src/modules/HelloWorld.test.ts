@@ -4,7 +4,7 @@ export const HelloWorld: ModuleValidationData = {
 	name: "HelloWorld",
 	lambdasChecks: {
 		'HelloWorld': {
-			input: "Jack",
+			input: "hello world",
 			output: {
 				speakText: "hello world"
 			}

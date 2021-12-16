@@ -8,7 +8,7 @@
     "build": "yarn workspaces run build",
     "prebuild": "yarn workspace @stupidassistant/types run build",
     "lint": "eslint .",
-    "pretest": "yarn build && yarn lint",
+    "pretest": "yarn lint",
     "test": "yarn workspaces run test",
     "start": "yarn start:client",
     "start:client": "yarn workspace @stupidassistant/app start",

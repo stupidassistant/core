@@ -19,7 +19,7 @@ export type LambdaOutputJSON = {
 export type Lambda = (request: LambdaInput, responce: LambdaOutput) => LambdaOutput;
 export type LambdaInstance = (text: string) => LambdaOutput;
 
-type LambdaConfig<LambdaStorage> = {
+export type LambdaConfig<LambdaStorage = Lambda|LambdaInstance|LambdaString> = {
 	phrases: LambdaPhrases,
 	slots?: {
 		[alias: string]: string
