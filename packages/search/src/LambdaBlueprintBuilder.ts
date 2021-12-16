@@ -2,5 +2,5 @@ import type { LambdaBlueprintBuilder as LambdaBlueprintBuilderI } from '@stupida
 
 export const LambdaBlueprintBuilder: LambdaBlueprintBuilderI = (lambda) => ({
   phrases: lambda.phrases,
-  slots: lambda.slots ? Object.keys(lambda.slots) : []
+  slots: lambda.slots || {}
 });

@@ -16,7 +16,7 @@ describe('SearchEcosystem', () => {
           lambdas: {
             "HelloWorld": {
               phrases: ["hello world"],
-              slots: []
+              slots: {}
             }
           }
         }
@@ -39,15 +39,17 @@ describe('SearchEcosystem', () => {
           lambdas: {
             "NormalLambda": {
               phrases: ["test"],
-              slots: []
+              slots: {}
             },
             "InvalidSlot": {
-              phrases: ["test <abc=ExampleSlot>"],
-              slots: []
+              phrases: ["test <abc>"],
+              slots: {}
             },
             "ValidSlot": {
-              phrases: ["test2 <abc=ExampleSlot>"],
-              slots: ["ExampleSlot"]
+              phrases: ["test2 <abc>"],
+              slots: {
+                abc: "ExampleSlot"
+              }
             }
           }
         }

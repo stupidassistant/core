@@ -13,9 +13,9 @@ const SearchEcosystem = (ecosystem: EcosystemLandscape): Query => (phrase: strin
         } else {
           const sections = p.split(/<|>/g);
           for (let i=1; i<sections.length; i+=2) {
-            const slotInfo = sections[i];
-            if (slotInfo) {
-              const [_, slotId] = slotInfo.split("=");
+            const slotLabel = sections[i];
+            if (slotLabel) {
+              const slotId = l.slots[slotLabel];
               if (slotId) {
                 const slot = ecosystem.slots[slotId];
                 if (slot)

@@ -3,7 +3,9 @@ import type { CompiledSlot } from "./Slot";
 
 export type LambdaBlueprint = {
   phrases: string[],
-  slots: string[]
+  slots: {
+    [slotId: string]: string
+  }
 };
 export type LambdaBlueprintBuilder = (slot: LambdaConfig<any>) => LambdaBlueprint;
 
