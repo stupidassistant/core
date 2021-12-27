@@ -1,14 +1,13 @@
 import { Modules } from '@stupidassistant/examples';
-import Request from '../Request';
-import Responce from '../Responce';
+import LambdaLoader from '../LambdaLoader';
 
 describe('Module Testing', () => {
-	Object.keys(Modules.validationData).map(mId => {
-		const moduleTestData = Modules.validationData[mId];
-		const moduleData = Modules.list[mId];
+	Object.keys(Modules.validationData).map(moduleId => {
+		const moduleTestData = Modules.validationData[moduleId];
+		const moduleData = Modules.list[moduleId];
 
 		if (!!moduleData && !!moduleTestData)
-			it(`Testing: ${mId}`, () => {
+			it(`Testing: ${moduleId}`, () => {
 				expect(moduleData).not.toBeNull();
 				expect(moduleTestData).not.toBeNull();
 				
@@ -18,8 +17,16 @@ describe('Module Testing', () => {
 
 					expect(lambdaTestData).not.toBeNull();
 					expect(lambda).not.toBeNull();
+
+
+					
 					if (!!lambda && !!lambdaTestData) {
-						expect(lambda.lambda(new Request(lambdaTestData.input), new Responce())).toEqual(lambdaTestData.output);
+						const result = LambdaLoader(lambda.lambda.toString())({
+							moduleId,
+							lambdaId,
+							...lambdaTestData.input
+						}, lambdaTestData.slots);
+						expect(result).toEqual(lambdaTestData.output);
 					}
 				});
 			})

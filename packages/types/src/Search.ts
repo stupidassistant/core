@@ -21,23 +21,32 @@ export type SlotBlueprint = {
 };
 export type SlotBlueprintBuilder = (slot: CompiledSlot) => SlotBlueprint;
 
+export type SlotLandscape = {
+  [slotId: string]: SlotBlueprint
+};
+
+export type ModuleLandscape = {
+  [moduleId: string]: ModuleBlueprint
+};
+
 export type EcosystemLandscape = {
-  modules: {
-    [moduleId: string]: ModuleBlueprint
-  },
-  slots: {
-    [slotId: string]: SlotBlueprint
-  }
+  modules: ModuleLandscape,
+  slots: SlotLandscape
+};
+
+export type SlotRelabeling = {
+  [label: string]: string
 };
 
 export type QueryResult = {
   moduleId: string,
-  lambdaId: string
+  lambdaId: string,
+  phrase: string,
+  keyPhrase: string,
+  slots: SlotRelabeling
 };
 
-export type RankedQueryResult = {
-  moduleId: string,
-  lambdaId: string,
+export type RankedQueryResult = QueryResult & {
   rank: number
 };
 

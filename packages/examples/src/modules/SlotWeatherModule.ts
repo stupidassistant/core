@@ -1,6 +1,6 @@
 import type { Module } from "@stupidassistant/types";
 
-export const HelloWorld: Module = {
+export const SlotWeather: Module = {
 	name: "SlotWeather",
 	lambdas: {
 		'WhatIsTheWeatherOn': {
@@ -9,7 +9,7 @@ export const HelloWorld: Module = {
         "day": "DayOfWeek"
       },
 			lambda: (req, res) => {
-				return res.speak("hello world");
+				return res.speak(`it is raining on ${req.params.day?.value || ""}`);
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-import type { ModuleJSON, LambdaInstance, ModuleInstance as MInstance, LambdaOutputJSON } from '@stupidassistant/types';
+import type { ModuleJSON, ModuleInstance as MInstance, LambdaOutputJSON, SlotLandscape, QueryResult } from '@stupidassistant/types';
 import LambdaLoader from './LambdaLoader';
 import { ObjMap } from './utils';
 
@@ -10,13 +10,13 @@ class ModuleInstance {
 			...json,
 			lambdas: ObjMap(json.lambdas, (_, v) => ({
 				phrases: v.phrases,
-				slots: v.slots,
-				lambda: LambdaLoader(v.lambda) as LambdaInstance
+				slots: v.slots || {},
+				lambda: LambdaLoader(v.lambda)
 			}))
 		});
 	}
 
-	run(str: string): LambdaOutputJSON | null {
+	run(queryResult: QueryResult, slots: SlotLandscape): LambdaOutputJSON | null {
 		const keys: string[] = Object.keys(this.config.lambdas);
 		if (keys.length == 0)
 			return null;
@@ -26,7 +26,7 @@ class ModuleInstance {
 		if (!lambda)
 			return null;
 		
-		return lambda(str).toJSON();
+		return lambda(queryResult, slots);
 	}
 }
 

@@ -4,7 +4,13 @@ export const HelloWorld: ModuleValidationData = {
 	name: "HelloWorld",
 	lambdasChecks: {
 		'HelloWorld': {
-			input: "hello world",
+			input: {
+				keyPhrase: "hello world",
+				params: {},
+				phrase: "hello world",
+				slots: {}
+			},
+			slots: {},
 			output: {
 				speakText: "hello world"
 			}

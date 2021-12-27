@@ -4,7 +4,13 @@ export const GetDate: ModuleValidationData = {
 	name: "GetDate",
 	lambdasChecks: {
 		'getDate': {
-			input: "get date",
+			input: {
+				keyPhrase: "get date",
+				params: {},
+				phrase: "get date",
+				slots: {}
+			},
+			slots: {},
 			output: {
 				speakText: `${new Date().getDay()}`
 			}

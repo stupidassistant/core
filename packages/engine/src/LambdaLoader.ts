@@ -1,20 +1,19 @@
-import type { LambdaOutputJSON } from '@stupidassistant/types';
+import type { LambdaInstance, LambdaOutputJSON, QueryResult, SlotLandscape } from '@stupidassistant/types';
+import { Responce } from '@stupidassistant/classes';
+import { PhraseProcessor } from '@stupidassistant/functions';
 import { VM } from "vm2";
 
-import Request from './Request';
-import Responce from './Responce';
-
-const LambdaLoader = (str: string): (text: string) => LambdaOutputJSON => {
-	return (text: string): LambdaOutputJSON => {
+const LambdaLoader = (code: string): LambdaInstance => {
+	return (input: QueryResult, slots: SlotLandscape) => {
 		const vm = new VM({
 			timeout: 1000,
 			sandbox: {
-				request: new Request(text),
+				request: PhraseProcessor(input, slots),
 				responce: new Responce()
 			}
 		});
 
-		return vm.run(`(${str})(request, responce)`) as LambdaOutputJSON;
+		return vm.run(`(${code})(request, responce)`) as LambdaOutputJSON;
 	}
 };
 

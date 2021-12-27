@@ -1,11 +1,11 @@
 {
-  "name": "@stupidassistant/engine",
+  "name": "@stupidassistant/classes",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --build",
-    "test": "jest"
+		"test": "echo \"Unit testing is not configured for package, skipping.\""
   },
   "peerDependencies": {
     "react": ">=17"
@@ -30,7 +30,6 @@
   },
   "dependencies": {
     "@stupidassistant/types": "^1.0.0",
-    "@stupidassistant/classes": "^1.0.0",
     "vm2": "^3.9.5"
   },
   "devDependencies": {
