@@ -5,11 +5,15 @@ const SearchEcosystem = (ecosystem: EcosystemLandscape): Query => (phrase: strin
     for (const [lId, l] of Object.entries(m.lambdas)) {
       for (const p of l.phrases) {
         if (p.indexOf("<") == -1) {
-          if (new RegExp(`^${p}$`).test(phrase))
+          if (new RegExp(`^${p}$`).test(phrase)) {
             return {
               moduleId: mId,
-              lambdaId: lId
+              lambdaId: lId,
+              phrase,
+              keyPhrase: p,
+              slots: l.slots
             };
+          }
         } else {
           const sections = p.split(/<|>/g);
           for (let i=1; i<sections.length; i+=2) {
@@ -27,7 +31,10 @@ const SearchEcosystem = (ecosystem: EcosystemLandscape): Query => (phrase: strin
           if (new RegExp(`^${newP}$`).test(phrase))
             return {
               moduleId: mId,
-              lambdaId: lId
+              lambdaId: lId,
+              phrase,
+              keyPhrase: p,
+              slots: l.slots
             };
         }
       }

@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf ./packages/*/dist",
     "build": "yarn workspaces run build",
-    "prebuild": "yarn workspace @stupidassistant/types run build",
+    "prebuild": "yarn workspace @stupidassistant/types run build | yarn workspace @stupidassistant/classes run build",
     "lint": "eslint .",
     "pretest": "yarn lint",
     "test": "yarn workspaces run test",

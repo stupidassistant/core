@@ -1,11 +1,23 @@
+import type { QueryResult, SlotLandscape } from ".";
+
 export type LambdaId = string;
 export type LambdaString = string;
 export type LambdaPhrases = string[];
 
+export type Params = Record<string, {
+	slotId: string,
+	value: string
+}>
+
 export type LambdaInput = {
 	text: string,
-	date: DateConstructor
+	date: DateConstructor,
+	params: Params
 };
+
+export type LambdaConstructor = QueryResult & {
+	params: Params
+}
 
 export type LambdaOutput = {
 	speak: (text: string) => LambdaOutput;
@@ -17,7 +29,7 @@ export type LambdaOutputJSON = {
 };
 
 export type Lambda = (request: LambdaInput, responce: LambdaOutput) => LambdaOutput;
-export type LambdaInstance = (text: string) => LambdaOutput;
+export type LambdaInstance = (input: QueryResult, slots: SlotLandscape) => LambdaOutputJSON;
 
 export type LambdaConfig<LambdaStorage = Lambda|LambdaInstance|LambdaString> = {
 	phrases: LambdaPhrases,
@@ -45,7 +57,8 @@ export type ModuleJSON = {
 export type ModuleValidationData = {
 	name: string,
 	lambdasChecks: Record<LambdaId, {
-		input: LambdaString,
+		input: Omit<LambdaConstructor, "moduleId"|"lambdaId">,
+		slots: SlotLandscape,
 		output: LambdaOutputJSON
 	}>
 };

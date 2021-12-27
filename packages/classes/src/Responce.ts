@@ -1,7 +1,7 @@
 
 import type { LambdaOutput, LambdaOutputJSON } from "@stupidassistant/types";
 
-export default class Responce implements LambdaOutput {
+export class Responce implements LambdaOutput {
 	private speakText?: string;
 
 	public speak(text: string) {

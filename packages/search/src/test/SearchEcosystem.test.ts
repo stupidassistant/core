@@ -28,7 +28,10 @@ describe('SearchEcosystem', () => {
     expect(SearchEcosystem(config)("test")).toBeNull();
     expect(SearchEcosystem(config)("hello world")).toStrictEqual({
       moduleId: "HelloWorldModule",
-      lambdaId: "HelloWorld"
+      lambdaId: "HelloWorld",
+      keyPhrase: "hello world",
+      phrase: "hello world",
+      slots: {}
     });
   })
   
@@ -64,14 +67,22 @@ describe('SearchEcosystem', () => {
     expect(SearchEcosystem(config)("")).toBeNull();
     expect(SearchEcosystem(config)("test")).toStrictEqual({
       moduleId: "SlotModule",
-      lambdaId: "NormalLambda"
+      lambdaId: "NormalLambda",
+      keyPhrase: "test",
+      phrase: "test",
+      slots: {}
     });
 
     expect(SearchEcosystem(config)("test one")).toBeNull();
     
     expect(SearchEcosystem(config)("test2 one")).toStrictEqual({
       moduleId: "SlotModule",
-      lambdaId: "ValidSlot"
+      lambdaId: "ValidSlot",
+      keyPhrase: "test2 <abc>",
+      phrase: "test2 one",
+      slots: {
+        "abc": "ExampleSlot"
+      }
     });
   })
 })
