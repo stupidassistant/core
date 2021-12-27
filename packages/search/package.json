@@ -29,10 +29,10 @@
     ]
   },
   "dependencies": {
-    "@stupidassistant/types": "^1.0.0",
     "vm2": "^3.9.5"
   },
   "devDependencies": {
+    "@stupidassistant/types": "^1.0.0",
     "@stupidassistant/examples": "^1.0.0",
     "@types/events": "^3.0.0"
   }

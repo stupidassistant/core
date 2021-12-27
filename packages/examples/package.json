@@ -23,7 +23,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
+  "devDependencies": {
     "@stupidassistant/types": "^1.0.0"
   }
 }
