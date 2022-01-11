@@ -13,8 +13,7 @@ jobs:
       with:
         node-version: 14.x
     - name: yarn install
-      run:
-        yarn | npx oao bootstrap
+      run: yarn
     - name: yarn build
       run: yarn build
     - name: yarn test
