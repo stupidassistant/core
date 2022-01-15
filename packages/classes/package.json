@@ -5,7 +5,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --build",
-		"test": "echo \"Unit testing is not configured for package, skipping.\""
+    "test": "echo \"Unit testing is not configured for package, skipping.\""
   },
   "peerDependencies": {
     "react": ">=17"

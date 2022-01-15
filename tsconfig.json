@@ -1,6 +1,7 @@
 {
   "files": [],
   "references": [
+    { "path": "./packages/types" },
     { "path": "./packages/engine" },
     { "path": "./packages/search" },
     { "path": "./packages/functions" },

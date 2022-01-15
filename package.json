@@ -5,11 +5,10 @@
   ],
   "scripts": {
     "clean": "rimraf ./packages/*/dist",
-    "build": "yarn workspaces run build",
-    "prebuild": "yarn workspace @stupidassistant/types run build | yarn workspace @stupidassistant/classes run build",
+    "build": "yarn workspaces foreach -pt run build",
     "lint": "eslint .",
     "pretest": "yarn lint",
-    "test": "yarn workspaces run test",
+    "test": "yarn workspaces foreach run test",
     "start": "yarn start:client",
     "start:client": "yarn workspace @stupidassistant/app start",
     "start:server": "yarn workspace @stupidassistant/server start",

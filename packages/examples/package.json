@@ -2,7 +2,7 @@
   "name": "@stupidassistant/examples",
   "version": "1.0.0",
   "main": "dist/index.js",
-	"types": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --build",
     "lint:tsc": "echo \"TypeScript is not configured for package, skipping.\"",

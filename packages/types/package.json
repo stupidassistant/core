@@ -2,12 +2,12 @@
   "name": "@stupidassistant/types",
   "version": "1.0.0",
   "main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"scripts": {		
-    "build": "tsc --build",
-		"lint:tsc": "echo \"TypeScript is not configured for package, skipping.\"",
-		"test": "echo \"Unit testing is not configured for package, skipping.\""
-	},
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p .",
+    "lint:tsc": "echo \"TypeScript is not configured for package, skipping.\"",
+    "test": "echo \"Unit testing is not configured for package, skipping.\""
+  },
   "peerDependencies": {
     "react": ">=17"
   },
