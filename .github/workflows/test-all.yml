@@ -13,7 +13,11 @@ jobs:
       with:
         node-version: 14.x
     - name: yarn install
-      run: yarn
+      run:
+        yarn
+        yarn set version berry
+        yarn set version canary
+        yarn plugin import workspace-tools
     - name: yarn build
       run: yarn build
     - name: yarn test
