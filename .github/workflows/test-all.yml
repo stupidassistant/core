@@ -13,7 +13,7 @@ jobs:
       with:
         node-version: 14.x
     - name: yarn install
-      run:
+      run: |
         yarn
         yarn set version berry
         yarn set version canary
